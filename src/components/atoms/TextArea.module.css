@@ -1,0 +1,12 @@
+.root {
+  cursor: pointer;
+  background-color: var(--t-color-background-alt);
+  color: var(--t-color-contrast-low);
+  border: none;
+  border-radius: var(--t-radius-sm);
+  padding: var(--t-spacing-xs);
+  transition: var(--t-transition);
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-xxs);
+}

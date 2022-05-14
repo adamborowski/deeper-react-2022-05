@@ -1,0 +1,7 @@
+.root {
+  height: var(--t-spacing-xxxl);
+  width: 220px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 0;
+}

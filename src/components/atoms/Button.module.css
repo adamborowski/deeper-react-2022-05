@@ -1,0 +1,18 @@
+.root {
+  cursor: pointer;
+  background: var(--t-color-primary);
+  color: var(--t-color-contrast-invert);
+  border: none;
+  border-radius: var(--t-radius-sm);
+  padding: var(--t-spacing-xs);
+  transition: var(--t-transition);
+  display: flex;
+  align-items: center;
+  gap: var(--t-spacing-xxs);
+}
+.root:hover {
+  filter: brightness(var(--t-brigtness-higher));
+}
+.root:active {
+  filter: brightness(var(--t-brigtness-lower));
+}

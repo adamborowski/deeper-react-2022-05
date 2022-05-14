@@ -1,0 +1,23 @@
+.root {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  background: var(--t-color-surface);
+  padding: var(--t-spacing-sm);
+  font-weight: 600;
+  transition: var(--t-transition);
+}
+
+.root,
+.root:visited {
+  color: var(--t-color-primary);
+}
+
+.root:hover {
+  filter: brightness(var(--t-brigtness-lower));
+}
+.active,
+.active:visited {
+  background: var(--t-color-primary);
+  color: var(--t-color-contrast-invert);
+}

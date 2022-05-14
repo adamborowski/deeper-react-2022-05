@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  gap: var(--t-spacing-md);
+  padding: var(--t-spacing-xs);
+  background: var(--t-color-surface-alt);
+  align-items: center;
+}
+.pageField {
+  width: 50px;
+}
+
+.spacer {
+  flex: 1;
+}

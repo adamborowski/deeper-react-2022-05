@@ -1,0 +1,83 @@
+.root {
+  --t-color-overlay-light: #ffffff;
+  --t-color-overlay-light-2: rgba(255, 255, 255, 0.8);
+  --t-color-overlay-light-3: rgba(255, 255, 255, 0.5);
+  --t-color-overlay-dark: #000000;
+  --t-color-overlay-dark-2: rgba(0, 0, 0, 0.8);
+  --t-color-overlay-dark-3: rgba(0, 0, 0, 0.5);
+
+  --t-spacing-xxs: 0.25rem;
+  --t-spacing-xs: 0.5rem;
+  --t-spacing-sm: 0.75rem;
+  --t-spacing-md: 1rem;
+  --t-spacing-lg: 1.25rem;
+  --t-spacing-xl: 2rem;
+  --t-spacing-xxl: 2.625rem;
+  --t-spacing-xxxl: 4rem;
+
+  --t-shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+
+  --t-radius-none: 0;
+  --t-radius-sm: 4px;
+  --t-radius-md: 8px;
+  --t-radius-lg: 16px;
+
+  --t-brigtness-lower: 90%;
+  --t-brigtness-normal: 100%;
+  --t-brigtness-higher: 110%;
+
+  --t-transition: all 200ms;
+}
+
+.light {
+  --t-color-primary: #006e94;
+  --t-color-error: #ce190d;
+  --t-color-error-alt: #bf160a;
+  --t-color-success: #22aa00;
+  --t-color-success-alt: #1f8719;
+  --t-color-warning: #ff620c;
+  --t-color-warning-alt: #e06f00;
+  --t-color-background: #e4ebf1;
+  --t-color-background-alt: #dae1e9;
+  --t-color-surface: #ffffff;
+  --t-color-surface-alt: #f0f4f8;
+  --t-color-secondary: #c6d1db;
+  --t-color-secondary-alt: #90a0b3;
+  --t-color-contrast-high: #000000;
+  --t-color-contrast-low: #323a45;
+  --t-color-contrast-invert: #ffffff;
+}
+
+.dark {
+  --t-color-primary: #00a0c5;
+  --t-color-error: #ff5959;
+  --t-color-error-alt: #ff5959;
+  --t-color-success: #9affa6;
+  --t-color-success-alt: #59ff67;
+  --t-color-warning: #ffa359;
+  --t-color-warning-alt: #ffa359;
+  --t-color-background: #191d23;
+  --t-color-background-alt: #000000;
+  --t-color-surface: #262c35;
+  --t-color-surface-alt: #111419;
+  --t-color-secondary: #3e4751;
+  --t-color-secondary-alt: #5a616a;
+  --t-color-contrast-high: #ffffff;
+  --t-color-contrast-low: #c6d1db;
+  --t-color-contrast-invert: #000000;
+
+  --t-brigtness-lower: 110%;
+  --t-brigtness-normal: 100%;
+  --t-brigtness-higher: 90%;
+}
+
+.defaults {
+  outline-color: red !important;
+  color: var(--t-color-contrast-low);
+}
+
+.defaults a {
+  outline-color: var(--t-color-primary);
+  color: var(--t-color-primary);
+  text-decoration: none;
+}
