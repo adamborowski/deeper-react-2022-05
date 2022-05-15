@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { RequireAuth } from '../common/containers/RequireAuth';
 import { AppLayout } from '../common/templates/AppLayout';
+import { PageLayout } from '../common/templates/PageLayout';
 import { AdminMenuItems } from '../features/admin/AdminMenuItems';
 import { toAdminPage } from '../features/admin/routes';
 import { toAdminUsersPage } from '../features/admin/users/routes';
@@ -12,10 +13,7 @@ import { toLoginPage } from '../features/login/routes';
 import { UseLogin } from '../features/login/useLogin';
 import { MovieDetails } from '../features/movie-browser/movie-details/MovieDetails';
 import { MovieList } from '../features/movie-browser/movie-list/MovieList';
-import {
-  toMovieDetailsPage,
-  toMoviesPage,
-} from '../features/movie-browser/routes';
+import { toMovieDetailsPage, toMoviesPage } from '../features/movie-browser/routes';
 import { AppHeader } from './AppHeader';
 
 interface AuthenticatedAppProps {
@@ -57,7 +55,11 @@ export const AppPure = ({ login, onThemeToggle }: AuthenticatedAppProps) => (
           </RequireAuth>
         }
       />
-      <Route path="*" element="Nie znaleziono strony" />
+      <Route
+        path={`${toAdminPage()}/*`}
+        element={<PageLayout title="Panel administracyjny" />}
+      />
+      <Route path="*" element={<PageLayout title="Nie znaleziono strony" />} />
     </Routes>
   </AppLayout>
 );

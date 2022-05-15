@@ -3,7 +3,7 @@ import styles from './PageLayout.module.css';
 
 export interface PageLayoutProps {
   title: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const PageLayout: FC<PageLayoutProps> = ({
