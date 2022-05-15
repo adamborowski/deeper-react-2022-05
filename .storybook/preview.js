@@ -26,7 +26,9 @@ export const decorators = [
           flexDirection: 'column',
         }}
       >
-        <Story />
+        <div>
+          <Story />
+        </div>
       </ThemeProvider>
     </HashRouter>
   ),
