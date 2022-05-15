@@ -9,6 +9,7 @@ const Template: ComponentStory<typeof MatchCounter> = (args) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   matchStartTime: Date.now(),
   teamA: 'Polska',

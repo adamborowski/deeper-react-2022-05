@@ -1,19 +1,11 @@
 import { FC, useEffect } from 'react';
+import { uniqueId } from './uniqueId';
 
 export interface MatchCounterProps {
   teamA: string;
   teamB: string;
   matchStartTime: number;
 }
-
-const uniqueId = (() => {
-  let counter = 0;
-  return () => {
-    const toReturn = counter;
-    counter = counter + 1;
-    return toReturn;
-  };
-})();
 
 export const MatchCounter: FC<MatchCounterProps> = ({
   matchStartTime,
