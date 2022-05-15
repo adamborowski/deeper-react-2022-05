@@ -10,6 +10,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'fullscreen',
 };
 
 export const decorators = [
@@ -17,7 +18,13 @@ export const decorators = [
     <HashRouter>
       <ThemeProvider
         theme={context.globals.theme}
-        style={{ background: 'var(--t-color-background)', height: '100%' }}
+        style={{
+          background: 'var(--t-color-background)',
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'stretch',
+          flexDirection: 'column',
+        }}
       >
         <Story />
       </ThemeProvider>
