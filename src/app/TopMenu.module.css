@@ -1,5 +1,0 @@
-.root {
-  display: flex;
-  flex-direction: row;
-  gap: var(--t-spacing-xxs);
-}
