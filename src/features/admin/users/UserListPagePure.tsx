@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { PageLayout } from '../../../components/templates/PageLayout';
+import { PageLayout } from '../../../common/templates/PageLayout';
 import { UserListItem } from './UserListItem';
 
 export interface UserListItemData {

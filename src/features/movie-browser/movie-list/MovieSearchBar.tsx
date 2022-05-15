@@ -1,7 +1,7 @@
 import { FormEventHandler, useEffect, useState } from 'react';
 import { RiArrowLeftFill, RiArrowRightFill } from 'react-icons/ri';
-import { Button } from '../../../components/atoms/Button';
-import { Input } from '../../../components/atoms/Input';
+import { Button } from '../../../common/atoms/Button';
+import { Input } from '../../../common/atoms/Input';
 import { convertQuery, StateQueryParams } from '../../../services/queryParams';
 import styles from './MovieSearchBar.module.css';
 

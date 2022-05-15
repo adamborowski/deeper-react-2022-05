@@ -1,8 +1,8 @@
 import { Firestore } from 'firebase/firestore';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { RequireAuth } from '../components/containers/RequireAuth';
-import { AppLayout } from '../components/templates/AppLayout';
+import { RequireAuth } from '../common/containers/RequireAuth';
+import { AppLayout } from '../common/templates/AppLayout';
 import { AdminMenuItems } from '../features/admin/AdminMenuItems';
 import { toAdminPage } from '../features/admin/routes';
 import { toAdminUsersPage } from '../features/admin/users/routes';

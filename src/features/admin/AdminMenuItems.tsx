@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { MenuItem } from '../../components/atoms/MenuItem';
-import { RequireAuth } from '../../components/containers/RequireAuth';
+import { MenuItem } from '../../common/atoms/MenuItem';
+import { RequireAuth } from '../../common/containers/RequireAuth';
 import { UseLogin } from '../login/useLogin';
 import { toAdminPage } from './routes';
 import { toAdminUsersPage } from './users/routes';

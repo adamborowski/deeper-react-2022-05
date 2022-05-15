@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../components/atoms/Button';
-import { MenuItem } from '../components/atoms/MenuItem';
-import { AppHeaderLayout } from '../components/templates/AppHeaderLayout';
+import { Button } from '../common/atoms/Button';
+import { MenuItem } from '../common/atoms/MenuItem';
+import { AppHeaderLayout } from '../common/templates/AppHeaderLayout';
 import { toMoviesPage } from '../features/movie-browser/routes';
 import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import styles from './AppHeader.module.css';

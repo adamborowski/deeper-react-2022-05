@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { RiDeleteBin4Fill } from 'react-icons/ri';
-import { Button } from '../../../components/atoms/Button';
+import { Button } from '../../../common/atoms/Button';
 import styles from './UserListItem.module.css';
 
 export interface UserListItemProps {

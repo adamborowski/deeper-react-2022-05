@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
-import { Button } from '../../components/atoms/Button';
-import { Input } from '../../components/atoms/Input';
+import { Button } from '../../common/atoms/Button';
+import { Input } from '../../common/atoms/Input';
 import styles from './LoginPagePure.module.css';
 import { SignInState } from './useLogin';
 

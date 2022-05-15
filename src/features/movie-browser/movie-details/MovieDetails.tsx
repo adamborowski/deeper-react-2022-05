@@ -9,7 +9,7 @@ import {
   useNavigate,
   useParams,
 } from 'react-router-dom';
-import { Button } from '../../../components/atoms/Button';
+import { Button } from '../../../common/atoms/Button';
 import { convertQuery } from '../../../services/queryParams';
 import { getPosterUrl } from '../../../services/tmdb';
 import { useMovieSearchParams } from '../../../services/useMovieSearchParams';
