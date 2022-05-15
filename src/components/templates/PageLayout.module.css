@@ -1,0 +1,11 @@
+.root {
+}
+
+.title {
+  background: var(--t-color-surface-alt);
+  padding: var(--t-spacing-sm);
+}
+
+.content {
+  padding: var(--t-spacing-sm);
+}
