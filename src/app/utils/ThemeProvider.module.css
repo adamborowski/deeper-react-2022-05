@@ -27,6 +27,9 @@
   --t-brigtness-higher: 110%;
 
   --t-transition: all 200ms;
+
+  background: var(--t-color-background);
+  height: 100vh;
 }
 
 .light {
