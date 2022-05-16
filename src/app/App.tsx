@@ -14,24 +14,24 @@ const App = () => {
         <Logo/>
 
         <MenuSpacer/>
-        <MenuSpacer/>
 
-        <MenuItem to='/sport'>Sport</MenuItem>
-        <MenuItem to='/news'>Wiadomości</MenuItem>
-        <MenuItem to='/movies'>Filmy</MenuItem>
-        <MenuItem to='/music'>Muzyka</MenuItem>
-        <MenuItem to='/admin'>Admin</MenuItem>
-
-        <MenuSpacer/>
-        <MenuSpacer/>
-
-        <Button>Wyloguj</Button>
+        <Menu>
+          <MenuItem to='/sport'>Sport</MenuItem>
+          <MenuItem to='/news'>Wiadomości</MenuItem>
+          <MenuItem to='/movies'>Filmy</MenuItem>
+          <MenuItem to='/music'>Muzyka</MenuItem>
+          <MenuItem to='/admin'>Admin</MenuItem>
+        </Menu>
 
         <MenuSpacer/>
 
-        <Button>
-          <RiLightbulbFill/>
-        </Button>
+        <Menu>
+          <Button>Wyloguj</Button>
+
+          <Button>
+            <RiLightbulbFill/>
+          </Button>
+        </Menu>
 
       </Menu>
     </ThemeProvider>

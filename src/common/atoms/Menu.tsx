@@ -1,5 +1,5 @@
 import styles from './Menu.module.css';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 interface MenuProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface MenuProps {
 export const Menu = ({
   children,
   ...rest
-}: MenuProps) => (
+}: MenuProps): ReactElement => (
   <div
     {...rest}
     className={styles.menu}
