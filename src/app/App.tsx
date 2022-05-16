@@ -3,13 +3,24 @@ import { Button } from '../common/atoms/Button';
 import { Menu } from '../common/atoms/Menu';
 import { MenuItem } from '../common/atoms/MenuItem';
 import { MenuSpacer } from '../common/atoms/MenuSpacer';
+import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import './App.css';
 import { Logo } from './utils/Logo';
-import { ThemeProvider } from './utils/ThemeProvider';
+import { ThemeName, ThemeProvider, ThemeProviderProps } from './utils/ThemeProvider';
+import { useState } from 'react';
+
+
 
 const App = () => {
+  const [layout, setLayout] = useState<ThemeName>('light')
+
+  const changeLayout = () => {
+    setLayout(layout === 'dark' ? "light": "dark");
+  }
+
   return (
-    <ThemeProvider theme="light">
+    <ThemeProvider theme={layout}>
+
       <Menu>
         <Logo/>
 
@@ -28,9 +39,7 @@ const App = () => {
         <Menu>
           <Button>Wyloguj</Button>
 
-          <Button>
-            <RiLightbulbFill/>
-          </Button>
+          <ThemeButton onClick={changeLayout}/>
         </Menu>
 
       </Menu>
