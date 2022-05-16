@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { ReactNode } from 'react';
 import styles from './ThemeProvider.module.css';
 
-export type ThemeName = 'light'|'dark'
+export type ThemeName = 'light' | 'dark';
 
 export interface ThemeProviderProps {
   theme: ThemeName;

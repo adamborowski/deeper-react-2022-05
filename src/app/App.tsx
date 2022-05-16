@@ -1,4 +1,3 @@
-import { RiLightbulbFill } from 'react-icons/ri';
 import { Button } from '../common/atoms/Button';
 import { Menu } from '../common/atoms/Menu';
 import { MenuItem } from '../common/atoms/MenuItem';
@@ -6,20 +5,15 @@ import { MenuSpacer } from '../common/atoms/MenuSpacer';
 import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import './App.css';
 import { Logo } from './utils/Logo';
-import { ThemeName, ThemeProvider, ThemeProviderProps } from './utils/ThemeProvider';
-import { useState } from 'react';
-
-
+import { Layout } from '../common/atoms/Layout';
+import { useThemeSwitch } from './useThemeSwitch';
+import { ThemeProvider } from './utils/ThemeProvider';
 
 const App = () => {
-  const [layout, setLayout] = useState<ThemeName>('light')
-
-  const changeLayout = () => {
-    setLayout(layout === 'dark' ? "light": "dark");
-  }
+  const themeSwitch = useThemeSwitch();
 
   return (
-    <ThemeProvider theme={layout}>
+    <ThemeProvider theme={themeSwitch.theme}>
 
       <Menu>
         <Logo/>
@@ -39,10 +33,13 @@ const App = () => {
         <Menu>
           <Button>Wyloguj</Button>
 
-          <ThemeButton onClick={changeLayout}/>
+          <ThemeButton onClick={themeSwitch.toggle}/>
         </Menu>
 
       </Menu>
+      <Layout>
+        Nie znaleziono strony...
+      </Layout>
     </ThemeProvider>
   );
 };

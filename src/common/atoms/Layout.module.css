@@ -1,0 +1,6 @@
+.layout {
+    height: calc(100vh - 110px);
+    padding: var(--t-spacing-md);
+    background: var(--t-color-background-alt);
+    box-sizing: border-box;
+}
