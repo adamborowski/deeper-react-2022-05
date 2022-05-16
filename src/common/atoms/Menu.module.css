@@ -1,0 +1,8 @@
+.menu {
+    padding: var(--t-spacing-md);
+    display: flex;
+    width: 100%;
+    justify-content: stretch;
+    align-items: center;
+    box-sizing: border-box;
+}
