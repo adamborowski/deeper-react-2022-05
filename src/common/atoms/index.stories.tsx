@@ -19,7 +19,7 @@ export const Buttons = () => (
 
 export const Inputs = () => (
   <div>
-    <h2>Basic button</h2>
+    <h2>Text Input</h2>
     <Input defaultValue="some value" />
     <h2>Textarea</h2>
     <TextArea defaultValue="textarea value"></TextArea>
