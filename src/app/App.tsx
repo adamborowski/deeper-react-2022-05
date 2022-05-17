@@ -7,6 +7,7 @@ import { Menu } from './Menu';
 import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import { useThemeSwitcher } from './useThemeSwitcher';
 import { PageLayout } from '../common/layouts/PageLayout';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const themeSwitcher = useThemeSwitcher();
@@ -24,8 +25,40 @@ const App = () => {
             <ThemeButton onClick={themeSwitcher.toggleTheme} />
           </Menu>
         }
-        sidebarContent="TODO sidebar"
-        mainContent="TODO content"
+        sidebarContent={
+          <Routes>
+            <Route
+              path="/admin/*"
+              element={
+                <>
+                  <MenuItem to="/admin/users">Users</MenuItem>
+                  <MenuItem to="/admin/reports">Reports</MenuItem>
+                  <MenuItem to="/admin/settings">Settings</MenuItem>
+                </>
+              }
+            />
+            <Route path="/movies" element="TODO movie list" />
+            <Route path="*" element={null} />
+          </Routes>
+        }
+        mainContent={
+          <div>
+            <Routes>
+              <Route path="/about" element="O nas" />
+              <Route path="/news" element="Newsy" />
+              <Route path="/movies" element="Filmy" />
+              <Route path="/sport" element="sport" />
+              <Route path="/sport/pilka" element="sportowa pilka" />
+              <Route path="/sport/siatka" element="sportowa siatka" />
+              <Route
+                path="/sport/:disciplineId"
+                element="jakaś inna dyscyplina"
+              />
+              <Route path="/admin/*" element="admin" />
+              <Route path="*" element="Brak strony" />
+            </Routes>
+          </div>
+        }
       />
     </ThemeProvider>
   );
