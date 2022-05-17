@@ -14,7 +14,7 @@
 }
 .leftColumn {
   width: 200px;
-  background: var(--t-color-surface);
+  background: var(--t-color-background-alt);
 }
 .rightColumn {
   flex: 1;
