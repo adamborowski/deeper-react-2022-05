@@ -10,6 +10,7 @@ import { useThemeSwitch } from './useThemeSwitch';
 import { ThemeProvider } from './utils/ThemeProvider';
 import { Route, Routes } from 'react-router-dom';
 import { MoviesList } from '../features/movies/MoviesList';
+import { MovieDetails } from '../features/movies/MovieDetails';
 
 const App = () => {
   const themeSwitch = useThemeSwitch();
@@ -56,7 +57,8 @@ const App = () => {
   const main = <Routes>
     <Route path='/sport' element="Sport"></Route>
     <Route path='/news' element="Wiadomości"></Route>
-    <Route path='/movies/*' element="Filmy"></Route>
+    <Route path='/movies' element="Filmy"></Route>
+    <Route path='/movies/:movieId' element={<MovieDetails/>}></Route>
     <Route path='/music' element="Muzyka"></Route>
     <Route path='/admin/*' element="Admin"></Route>
     <Route path='/settings' element="Ustawienia"></Route>

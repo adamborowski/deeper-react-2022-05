@@ -36,6 +36,8 @@
     box-sizing: border-box;
     height: calc(100vh - 110px);
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(100vw - 270px);
 }
 
 .top {
