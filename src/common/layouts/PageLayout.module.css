@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.header {
+  box-shadow: var(--t-shadow-sm);
+}
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background: var(--t-color-background);
+}
+.leftColumn {
+  width: 200px;
+  background: var(--t-color-surface);
+}
+.rightColumn {
+  flex: 1;
+}
