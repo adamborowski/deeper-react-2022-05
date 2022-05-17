@@ -8,6 +8,7 @@ import { Logo } from './utils/Logo';
 import { Layout } from '../common/atoms/Layout';
 import { useThemeSwitch } from './useThemeSwitch';
 import { ThemeProvider } from './utils/ThemeProvider';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const themeSwitch = useThemeSwitch();
@@ -35,12 +36,29 @@ const App = () => {
 
   </Menu>;
 
-  const aside = <>
-    <MenuItem to='/settings'>Ustawienia</MenuItem>
-    <MenuItem to='/profile'>Profil</MenuItem>
-  </>;
+  const aside =
+    <Routes>
+      <Route path='/admin/*' element={
+        <>
+          <MenuItem to='/admin/settings'>Ustawienia</MenuItem>
+          <MenuItem to='/admin/users'>Użytkownicy</MenuItem>
+          <MenuItem to='/admin/reports'>Raporty</MenuItem>
+        </>
+      }></Route>
+      <Route path="*" element={null}></Route>
+    </Routes>
+;
 
-  const main = <>Nie znaleziono strony...</>;
+  const main = <Routes>
+    <Route path='/sport' element="Sport"></Route>
+    <Route path='/news' element="Wiadomości"></Route>
+    <Route path='/movies' element="Filmy"></Route>
+    <Route path='/music' element="Muzyka"></Route>
+    <Route path='/admin/*' element="Admin"></Route>
+    <Route path='/settings' element="Ustawienia"></Route>
+    <Route path='/profile' element="Profil"></Route>
+    <Route path="*" element={<><h1>404</h1><h2>nie odnaleziono strony </h2></>}></Route>
+  </Routes>;
 
   return (
     <ThemeProvider theme={themeSwitch.theme}>

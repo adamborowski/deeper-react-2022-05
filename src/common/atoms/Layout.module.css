@@ -12,6 +12,11 @@
     background: var(--t-color-background-alt);
     box-sizing: border-box;
     height: calc(100vh - 110px);
+    flex-basis: 250px;
+}
+
+.aside:empty {
+    display: none;
 }
 
 .main {
