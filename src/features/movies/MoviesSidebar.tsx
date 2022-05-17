@@ -12,15 +12,23 @@ export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
     (async () => {
       console.log('use effect !!!!');
 
-      const result = await searchMovies(
-        {
-          query: 'was asd asdasd asd saonder woman',
-          year: undefined,
-          page: 1,
-        },
-        abortController.signal
-      );
-      setMovies(result.results);
+      try {
+        const result = await searchMovies(
+          {
+            query: 'police',
+            year: undefined,
+            page: 1,
+          },
+          abortController.signal
+        );
+
+        setMovies(result.results);
+      } catch (e) {
+        // TODO how to identify that this error is caused by promise rejection?
+        // if (!(e instanceof PromiseRejectionEvent)) {
+        //   // throw e;
+        // }
+      }
     })();
 
     return () => {
