@@ -1,0 +1,4 @@
+.menuRoot {
+  display: flex;
+  flex-direction: row;
+}
