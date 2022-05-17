@@ -9,6 +9,7 @@ import { Layout } from '../common/atoms/Layout';
 import { useThemeSwitch } from './useThemeSwitch';
 import { ThemeProvider } from './utils/ThemeProvider';
 import { Route, Routes } from 'react-router-dom';
+import { MoviesList } from '../features/movies/MoviesList';
 
 const App = () => {
   const themeSwitch = useThemeSwitch();
@@ -45,6 +46,9 @@ const App = () => {
           <MenuItem to='/admin/reports'>Raporty</MenuItem>
         </>
       }></Route>
+      <Route path="/movies/*" element={
+        <MoviesList />}>
+      </Route>
       <Route path="*" element={null}></Route>
     </Routes>
 ;
@@ -52,7 +56,7 @@ const App = () => {
   const main = <Routes>
     <Route path='/sport' element="Sport"></Route>
     <Route path='/news' element="Wiadomości"></Route>
-    <Route path='/movies' element="Filmy"></Route>
+    <Route path='/movies/*' element="Filmy"></Route>
     <Route path='/music' element="Muzyka"></Route>
     <Route path='/admin/*' element="Admin"></Route>
     <Route path='/settings' element="Ustawienia"></Route>

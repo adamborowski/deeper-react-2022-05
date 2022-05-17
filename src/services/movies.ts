@@ -28,13 +28,13 @@ export const searchMovies = ({
   query,
   year,
   page,
-}: StateQueryParams): Promise<ApiResponse<MovieLite>> =>
+}: StateQueryParams, signal: AbortSignal): Promise<ApiResponse<MovieLite>> =>
   fetch(
     getApiUrl(query.trim() === '' ? 'movie/popular' : 'search/movie', {
       page: page.toString(),
       query,
-      primary_release_year: year,
-    })
+      primary_release_year: year
+    }), { signal }
   ).then((response) => response.json());
 
 export const getMovie = (id: number): Promise<Movie> =>

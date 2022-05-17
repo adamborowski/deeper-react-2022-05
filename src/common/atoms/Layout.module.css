@@ -13,6 +13,17 @@
     box-sizing: border-box;
     height: calc(100vh - 110px);
     flex-basis: 250px;
+    overflow-y: scroll;
+}
+
+.aside::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: transparent;
+}
+
+.aside::-webkit-scrollbar-thumb {
+    background: var(--t-color-primary);
 }
 
 .aside:empty {
