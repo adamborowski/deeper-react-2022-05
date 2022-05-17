@@ -16,6 +16,9 @@
   width: 200px;
   background: var(--t-color-background-alt);
 }
+.leftColumn:empty {
+  display: none;
+}
 .rightColumn {
   flex: 1;
 }
