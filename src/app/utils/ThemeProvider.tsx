@@ -2,6 +2,7 @@ import cx from 'classnames';
 import { ReactNode } from 'react';
 import styles from './ThemeProvider.module.css';
 
+console.log("styles", styles)
 export interface ThemeProviderProps {
   theme: 'light' | 'dark';
   children: ReactNode;
