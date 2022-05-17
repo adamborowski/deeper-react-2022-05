@@ -8,6 +8,7 @@ import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import { useThemeSwitcher } from './useThemeSwitcher';
 import { PageLayout } from '../common/layouts/PageLayout';
 import { Route, Routes } from 'react-router-dom';
+import { MoviesSidebar } from '../features/movies/MoviesSidebar';
 
 const App = () => {
   const themeSwitcher = useThemeSwitcher();
@@ -37,7 +38,7 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/movies" element="TODO movie list" />
+            <Route path="/movies" element={<MoviesSidebar/>} />
             <Route path="*" element={null} />
           </Routes>
         }
