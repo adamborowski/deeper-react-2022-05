@@ -12,33 +12,41 @@ import { ThemeProvider } from './utils/ThemeProvider';
 const App = () => {
   const themeSwitch = useThemeSwitch();
 
+  const top = <Menu>
+    <Logo/>
+
+    <MenuSpacer/>
+
+    <Menu>
+      <MenuItem to='/sport'>Sport</MenuItem>
+      <MenuItem to='/news'>Wiadomości</MenuItem>
+      <MenuItem to='/movies'>Filmy</MenuItem>
+      <MenuItem to='/music'>Muzyka</MenuItem>
+      <MenuItem to='/admin'>Admin</MenuItem>
+    </Menu>
+
+    <MenuSpacer/>
+
+    <Menu>
+      <Button>Wyloguj</Button>
+
+      <ThemeButton onClick={themeSwitch.toggle}/>
+    </Menu>
+
+  </Menu>;
+
+  const aside = <>
+    <MenuItem to='/settings'>Ustawienia</MenuItem>
+    <MenuItem to='/profile'>Profil</MenuItem>
+  </>;
+
+  const main = <>Nie znaleziono strony...</>;
+
   return (
     <ThemeProvider theme={themeSwitch.theme}>
 
-      <Menu>
-        <Logo/>
-
-        <MenuSpacer/>
-
-        <Menu>
-          <MenuItem to='/sport'>Sport</MenuItem>
-          <MenuItem to='/news'>Wiadomości</MenuItem>
-          <MenuItem to='/movies'>Filmy</MenuItem>
-          <MenuItem to='/music'>Muzyka</MenuItem>
-          <MenuItem to='/admin'>Admin</MenuItem>
-        </Menu>
-
-        <MenuSpacer/>
-
-        <Menu>
-          <Button>Wyloguj</Button>
-
-          <ThemeButton onClick={themeSwitch.toggle}/>
-        </Menu>
-
-      </Menu>
-      <Layout>
-        Nie znaleziono strony...
+      <Layout top={top} aside={aside}>
+        {main}
       </Layout>
     </ThemeProvider>
   );

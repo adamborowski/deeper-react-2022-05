@@ -1,6 +1,29 @@
 .layout {
     height: calc(100vh - 110px);
-    padding: var(--t-spacing-md);
     background: var(--t-color-background-alt);
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.aside {
+    background: var(--t-color-background-alt);
+    box-sizing: border-box;
+    height: calc(100vh - 110px);
+}
+
+.main {
+    padding: var(--t-spacing-md);
+    background: var(--t-color-background);
+    box-sizing: border-box;
+    height: calc(100vh - 110px);
+    flex-grow: 1;
+}
+
+.top {
+    background: var(--t-color-background-alt);
+    box-sizing: border-box;
+    flex: 1 0 100%;
 }
