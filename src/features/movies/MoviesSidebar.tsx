@@ -3,8 +3,24 @@ import { MovieLite, searchMovies } from '../../services/movies';
 
 export interface MoviesSidebarProps {}
 
+type MoviesState =
+  | {
+      type: 'idle';
+    }
+  | {
+      type: 'loading';
+    }
+  | {
+      type: 'success';
+      movies: MovieLite[];
+    }
+  | {
+      type: 'error';
+      message: string;
+    };
+
 export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
-  const [movies, setMovies] = useState<MovieLite[]>([]);
+  const [moviesState, setMovieState] = useState<MoviesState>({ type: 'idle' });
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -13,6 +29,7 @@ export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
       console.log('use effect !!!!');
 
       try {
+        setMovieState({ type: 'loading' });
         const result = await searchMovies(
           {
             query: 'police',
@@ -22,12 +39,16 @@ export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
           abortController.signal
         );
 
-        setMovies(result.results);
+        setMovieState({ type: 'success', movies: result.results });
       } catch (e) {
-        // TODO how to identify that this error is caused by promise rejection?
-        // if (!(e instanceof PromiseRejectionEvent)) {
-        //   // throw e;
-        // }
+        if (e instanceof DOMException && e.name === 'AbortError') {
+          setMovieState({ type: 'idle' });
+        } else {
+          setMovieState({
+            type: 'error',
+            message: e instanceof Error ? e.message : String(e),
+          });
+        }
       }
     })();
 
@@ -39,7 +60,10 @@ export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
   return (
     <>
       Tutaj będzie lista filmów
-      {movies.length === 0 ? 'loading...' : <>Filmy: {movies.length}</>}
+      {moviesState.type === 'loading' && 'loading'}
+      {moviesState.type === 'error' && <div>Error: {moviesState.message}</div>}
+      {moviesState.type === 'success' &&
+        moviesState.movies.map((movie) => <div>Movie: {movie.title}</div>)}
     </>
   );
 };
