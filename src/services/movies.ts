@@ -24,18 +24,19 @@ export interface Movie extends MovieLite {
   genres: Genres;
 }
 
-export const searchMovies = ({
-  query,
-  year,
-  page,
-}: StateQueryParams): Promise<ApiResponse<MovieLite>> =>
-  fetch(
+export const searchMovies = (
+  { query, year, page }: StateQueryParams,
+  signal?: AbortSignal
+): Promise<ApiResponse<MovieLite>> => {
+  return fetch(
     getApiUrl(query.trim() === '' ? 'movie/popular' : 'search/movie', {
       page: page.toString(),
       query,
       primary_release_year: year,
-    })
+    }),
+    { signal }
   ).then((response) => response.json());
+};
 
 export const getMovie = (id: number): Promise<Movie> =>
   fetch(getApiUrl(`movie/${id}`, {})).then((response) => response.json());
