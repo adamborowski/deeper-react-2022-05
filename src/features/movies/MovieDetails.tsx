@@ -49,7 +49,14 @@ export const MovieDetails = (props: MovieDetailsProps) => {
       <>
         <img className={styles.img} src={getPosterUrl(state.movie.poster_path)}/>
         <h1>{state.movie.title}</h1>
+        <h3>{state.movie.tagline}</h3>
+        <p>
+          {state.movie.release_date}<br/>
+          <small><b>Rate:</b> {state.movie.vote_average}/10 ({state.movie.vote_count} votes)</small><br/>
+          <small><b>Category:</b> {state.movie.genres.map(e => e.name).join(', ')}</small>
+        </p>
         <p>{state.movie.overview}</p>
+        <p><a href={state.movie.homepage}>{state.movie.homepage}</a></p>
       </>
     )}
   </>
