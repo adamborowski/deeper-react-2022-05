@@ -7,12 +7,30 @@ import { Menu } from './Menu';
 import { ThemeButton } from '../features/theme-switcher/ThemeButton';
 import { useThemeSwitcher } from './useThemeSwitcher';
 import { PageLayout } from '../common/layouts/PageLayout';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useMatch, useParams } from 'react-router-dom';
 import { MoviesSidebar } from '../features/movies/MoviesSidebar';
 import { MovieDetailsPage } from '../features/movies/MovieDetailsPage';
+import { MoviesState, useMovies } from '../features/movies/useMovies';
+
+const getMovie = (state: MoviesState, id: number) => {
+  if (state.type === 'success') {
+    return state.movies.find((movie) => movie.id === id);
+  }
+};
 
 const App = () => {
   const themeSwitcher = useThemeSwitcher();
+  const { movies, rename } = useMovies();
+
+  const match = useMatch('/movies/:movieId');
+  const movieId = Number(match?.params.movieId);
+
+  const currentMovie = getMovie(movies, movieId);
+
+  const handleRename = (newName: string) => {
+    console.log('czas na zmiane', movieId, newName);
+    rename(movieId, newName);
+  };
 
   return (
     <ThemeProvider theme={themeSwitcher.theme}>
@@ -39,7 +57,10 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/movies/*" element={<MoviesSidebar />} />
+            <Route
+              path="/movies/*"
+              element={<MoviesSidebar movies={movies} />}
+            />
             <Route path="*" element={null} />
           </Routes>
         }
@@ -49,7 +70,15 @@ const App = () => {
               <Route path="/about" element="O nas" />
               <Route path="/news" element="Newsy" />
               <Route path="/movies" element="Filmy" />
-              <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+              <Route
+                path="/movies/:movieId"
+                element={
+                  <MovieDetailsPage
+                    movie={currentMovie}
+                    onMovieNameChange={handleRename}
+                  />
+                }
+              />
               <Route path="/sport" element="sport" />
               <Route path="/sport/pilka" element="sportowa pilka" />
               <Route path="/sport/siatka" element="sportowa siatka" />

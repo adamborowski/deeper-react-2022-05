@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { MoviesState, useMovies } from './useMovies';
 import { MenuItem } from '../../common/atoms/MenuItem';
 
-export interface MoviesSidebarProps {}
+export interface MoviesSidebarProps {
+  movies: MoviesState;
+}
 
-export const MoviesSidebar: FC<MoviesSidebarProps> = ({}) => {
-  const { movies } = useMovies();
-
-  return <MoviesSidebarPure movies={movies} />;
+export const MoviesSidebar: FC<MoviesSidebarProps> = ({ movies }) => {
+  return <MoviesSidebarPure movies={movies} />; // todo can be removed
 };
 
 export const MoviesSidebarPure: FC<{ movies: MoviesState }> = ({ movies }) => (

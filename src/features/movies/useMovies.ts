@@ -57,5 +57,19 @@ export const useMovies = () => {
 
   return {
     movies: moviesState,
+    rename: (movieId: number, newTitle: string) => {
+      if (moviesState.type === 'success') {
+        setMovieState({
+          type: 'success',
+          movies: moviesState.movies.map((oldMovie) =>
+            oldMovie.id === movieId
+              ? { ...oldMovie, title: newTitle }
+              : oldMovie
+          ),
+        });
+      } else {
+        throw new Error('Cannot update movies when they are not loaded');
+      }
+    },
   };
 };

@@ -1,59 +1,40 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovie, Movie } from '../../services/movies';
+import { getMovie, Movie, MovieLite } from '../../services/movies';
 import { getPosterUrl } from '../../services/tmdb';
+import { Button } from '../../common/atoms/Button';
 
-export interface MovieDetailsPageProps {}
+export interface MovieDetailsPageProps {
+  movie: MovieLite | undefined;
+  onMovieNameChange?: (newName: string) => void;
+}
 
-type MovieState =
-  | {
-      type: 'idle';
-    }
-  | {
-      type: 'loading';
-    }
-  | {
-      type: 'success';
-      movie: Movie;
-    }
-  | {
-      type: 'error';
-      message: string;
-    };
-
-export const MovieDetailsPage: FC<MovieDetailsPageProps> = ({}) => {
-  const { movieId } = useParams();
-
-  const [movieState, setMovieState] = useState<MovieState>({ type: 'idle' });
+export const MovieDetailsPage: FC<MovieDetailsPageProps> = ({
+  movie,
+  onMovieNameChange,
+}) => {
+  const [title, setTitle] = useState(movie?.title ?? '');
 
   useEffect(() => {
-    setMovieState({ type: 'loading' });
-    getMovie(Number(movieId))
-      .then((movie) => {
-        setMovieState({ type: 'success', movie });
-      })
-      .catch((e) => {
-        setMovieState({
-          type: 'error',
-          message: e instanceof Error ? e.message : String(e),
-        });
-      });
-  }, [movieId]);
+    setTitle(movie?.title ?? '');
+  }, [movie]);
 
   return (
     <div>
       Details page
-      {movieState.type === 'loading' && 'loading...'}
-      {movieState.type === 'success' && (
+      {movie && (
         <div>
-          <div>{movieState.movie.title}</div>
-          <div>{movieState.movie.tagline}</div>
-          <div>
-            {movieState.movie.production_countries
-              .map((e) => e.name)
-              .join(', ')}
-          </div>
-          <img src={getPosterUrl(movieState.movie.poster_path)} />
+          <div>{movie.title}</div>
+          <input
+            value={title}
+            onChange={(event) => {
+              setTitle(event.target.value);
+            }}
+          />
+          <Button onClick={() => onMovieNameChange?.(title)}>Zapisz</Button>
+          <div>{movie.overview}</div>
+          <div>{movie.release_date}</div>
+          <img src={getPosterUrl(movie.poster_path)} />
         </div>
       )}
     </div>
