@@ -15,6 +15,7 @@
 .leftColumn {
   width: 200px;
   background: var(--t-color-background-alt);
+  flex-shrink: 0;
 }
 .leftColumn:empty {
   display: none;

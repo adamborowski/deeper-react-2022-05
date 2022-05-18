@@ -9,6 +9,7 @@ import { useThemeSwitcher } from './useThemeSwitcher';
 import { PageLayout } from '../common/layouts/PageLayout';
 import { Route, Routes } from 'react-router-dom';
 import { MoviesSidebar } from '../features/movies/MoviesSidebar';
+import { MovieDetailsPage } from '../features/movies/MovieDetailsPage';
 
 const App = () => {
   const themeSwitcher = useThemeSwitcher();
@@ -38,7 +39,7 @@ const App = () => {
                 </>
               }
             />
-            <Route path="/movies" element={<MoviesSidebar/>} />
+            <Route path="/movies/*" element={<MoviesSidebar />} />
             <Route path="*" element={null} />
           </Routes>
         }
@@ -48,6 +49,7 @@ const App = () => {
               <Route path="/about" element="O nas" />
               <Route path="/news" element="Newsy" />
               <Route path="/movies" element="Filmy" />
+              <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
               <Route path="/sport" element="sport" />
               <Route path="/sport/pilka" element="sportowa pilka" />
               <Route path="/sport/siatka" element="sportowa siatka" />
